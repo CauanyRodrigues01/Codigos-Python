@@ -1,12 +1,16 @@
-num = 0
+anterior = int(input())
 verifica = True
 while True:
     try:
-        aux = num
-        num = int(input())
-        if verifica:
-            if num <= aux:
-                print(aux+1)
-                verifica = False
+        #anterior = entrada1
+        prox = int(input())
+        if prox < anterior:
+            print(anterior + 1)
+            verifica = False
+            break
+        else:
+            anterior = prox
     except EOFError:
         break
+if verifica:
+    print(anterior + 1)
