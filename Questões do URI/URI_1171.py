@@ -1,13 +1,14 @@
-teste = int(input())
-numeros = []
-for a in range(teste):
-    num = int(input())
-    cont = 0
-    if num not in numeros:
-        numeros.append(num)
-    elif num in numeros:
-        for i in numeros:
-            if num == i:
-                cont+=1
+loops = int(input())
+entradas = dict()
 
-    print(f"{num} aparece {cont} vez(es)")
+for a in range(loops):
+    chave = int(input())
+    if (chave in entradas):
+        entradas[chave] += 1
+    else:
+        entradas[chave] = 1
+
+chaves = entradas.keys()
+chaves = sorted(chaves)
+for b in chaves:
+    print(b,"aparece", entradas[b], "vez(es)")

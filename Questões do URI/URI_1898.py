@@ -1,53 +1,107 @@
-entrada1 = input()
+'''entrada1 = input()
 entrada2 = input()
 
 
-desc1 = ""
-desc2 = ""
-'''for i in entrada1:
-    if ponto:
-        if i in "0123456789.":
-            desc1 += i
-            ponto = False
-    else:
-        if i in "0123456789":
-            desc1 += i
-ponto = True
-for i in entrada2:
-    if ponto:
-        if i in "0123456789.":
-            desc2 += i
-    else:
-        if i in "0123456789":
-            desc2 += i'''
-ponto1 = 0
+cpf = ""
+linha2 = ""
+
+ponto = 0
 for i in entrada1:
     if ponto == 1:
         if i in "0123456789":
-            desc1 += i
+            cpf += i
     if ponto == 0:
         if i in "0123456789.":
-            desc1 += i
+            cpf += i
+            ponto = 1
+
+cpf = cpf[:11]
+
+ponto = 0
+for j in entrada2:
+    if ponto == 1:
+        if j in "0123456789":
+            linha2 += j
+    if ponto == 0:
+        if j in "0123456789.":
+            linha2 += j
+            ponto = 1
+    
+propina = float("".join(linha2)) + float("".join(cpf))
+#propina = float(cpf[11:]) + float(linha2)
+print("cpf", cpf)
+print(f"{propina:.2f}")'''
+
+'''entrada1 = input()
+entrada2 = input()
+
+
+cpf = []
+linha2 = []
+
+ponto = 0
+for i in entrada1:
+    if ponto == 1:
+        if i in "0123456789":
+            cpf.append(i)
+    if ponto == 0:
+        if i in "0123456789.":
+            cpf.append(i)
             ponto = 1
 
 ponto = 0
 for j in entrada2:
     if ponto == 1:
         if j in "0123456789":
-            desc2 += j
+            linha2.append(j)
     if ponto == 0:
         if j in "0123456789.":
-            desc2 += j
+            linha2.append(j)
             ponto = 1
     
+propina = float("".join(linha2)) + float("".join(cpf[11:]))
 
-novo1 = desc1[11:]
-saida2 = float(novo1) + float(desc2)
+print("cpf", "".join(cpf[:11]))
+print(f"{propina:.2f}")'''
 
-#testes
-print("desc1",desc1)
-print("desc2",desc2)
-print("novo1",novo1)
-print("saida2",saida2)
-print("cpf "+desc1[:11])
-print(f"{saida2:.2f}")
+'''import re
+
+numeros = re.compile("[\d.]")
+
+ent1 = input()
+ent2 = input()
+
+cpf = []
+propina = []
+
+for a in ent1:
+    if numeros.match(a):
+        cpf.append(a)
+
+for b in ent2:
+    if numeros.match(b):
+        propina.append(b)
+
+print("cpf", "".join(cpf[:11]))
+print("{:.2f}".format(float("".join(propina)) + float("".join(cpf[11:]))))'''
+
+import re
+
+numeros = re.compile("[\d.]")
+
+ent1 = input()
+ent2 = input()
+
+cpf = ""
+propina = ""
+
+for a in ent1:
+    if numeros.match(a):
+        cpf += a
+
+for b in ent2:
+    if numeros.match(b):
+        propina += b
+
+print("cpf", cpf[:11])
+print(f"{float(propina) + float(cpf[11:]):.2f}")
